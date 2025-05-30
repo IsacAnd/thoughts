@@ -10,7 +10,8 @@
 html,
 body {
   min-height: 100dvh;
-  background-color: #535353;
+  background-color: #474747;
+  padding-top: 4dvh;
 }
 
 #root {
