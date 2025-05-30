@@ -1,0 +1,12 @@
+header {
+  height: 9dvh;
+}
+
+section {
+  min-height: 85dvh;
+  max-height: fit-content;
+}
+
+footer {
+  height: 8dvh;
+}

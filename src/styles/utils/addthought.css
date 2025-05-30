@@ -1,0 +1,25 @@
+:root {
+  --black: #535353;
+  --yellow: #f8c242;
+}
+
+button {
+  display: inline-flex;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.add-button {
+  margin: 1em 0 1em 1em;
+  display: flex;
+  align-items: center;
+}
+
+#icon {
+  height: 3em;
+  color: var(--yellow);
+}

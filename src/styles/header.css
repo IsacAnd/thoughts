@@ -1,0 +1,35 @@
+:root {
+  --black: #535353;
+  --yellow: #f8c242;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em;
+  height: 100%;
+  background-color: var(--black);
+  box-shadow: 0px 1px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+#img-logo {
+  height: 100%;
+}
+
+.list-options {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  font-weight: bold;
+  color: var(--yellow);
+}
+
+.list-options li {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.list-options li:hover {
+  color: #fad787;
+}
