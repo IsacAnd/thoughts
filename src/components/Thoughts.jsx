@@ -1,68 +1,31 @@
 import "../styles/thoughts.css";
 import Search from "./utils/Search";
-import AddThought from "./utils/AddThought";
-import { useState } from "react";
+import AddThoughtButton from "./utils/AddThoughtButton";
+import AddThought from "../pages/AddThought";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleUser,
   faThumbsUp,
   faThumbsDown,
 } from "@fortawesome/free-solid-svg-icons";
+import { getThoughts } from "../services/thoughtService";
 
 function Thoughts() {
-  const [thoughts, setThoughts] = useState([
-    {
-      username: "João Pedro",
-      title: "Bolo de avelâ devia ser normal",
-      desc: "Bolo de avelâ devia ser normal, pois é ótimo e ninguém discorda disso!",
-    },
-    {
-      username: "Maria Clara",
-      title: "Amo café com leite",
-      desc: "Café com leite é a melhor bebida para começar o dia!",
-    },
-    {
-      username: "Lucas Silva",
-      title: "A vida é bela",
-      desc: "A vida é bela, mesmo com seus altos e baixos, sempre há algo para se alegrar!",
-    },
-    {
-      username: "Ana Paula",
-      title: "Gatos são incríveis",
-      desc: "Gatos são criaturas maravilhosas, cheias de personalidade e amor!",
-    },
-    {
-      username: "Carlos Eduardo",
-      title: "A tecnologia é fascinante",
-      desc: "A tecnologia está mudando o mundo de maneiras incríveis, e eu adoro acompanhar essas mudanças!",
-    },
-    {
-      username: "Fernanda Souza",
-      title: "Viajar é viver",
-      desc: "Viajar é a melhor forma de aprender sobre o mundo e sobre nós mesmos!",
-    },
-    {
-      username: "Ricardo Lima",
-      title: "A música é a linguagem universal",
-      desc: "A música tem o poder de unir as pessoas, independentemente de suas diferenças!",
-    },
+  const [thoughts, setThoughts] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
 
-    {
-      username: "Juliana Costa",
-      title: "A natureza é perfeita",
-      desc: "A natureza nos oferece tudo o que precisamos para viver, e devemos cuidar dela!",
-    },
-    {
-      username: "Pedro Henrique",
-      title: "A leitura é essencial",
-      desc: "Ler nos permite viajar para outros mundos e aprender com diferentes perspectivas!",
-    },
-    {
-      username: "Sofia Martins",
-      title: "A arte é uma forma de expressão",
-      desc: "A arte nos permite expressar nossos sentimentos e pensamentos de maneiras únicas!",
-    },
-  ]);
+  useEffect(() => {
+    const unsubscribe = getThoughts(setThoughts);
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  function showModal() {
+    setModalVisible((prev) => !prev);
+  }
 
   return (
     <div className="thoughts-container">
@@ -70,8 +33,13 @@ function Thoughts() {
       <div className="thoughts-box">
         <div className="thoughts-header">
           <Search />
-          <AddThought />
+          <AddThoughtButton onClick={showModal} />
         </div>
+        {thoughts.length === 0 && (
+          <div className="no-thoughts">
+            <p>Sem pensamentos encontrados!</p>
+          </div>
+        )}
         <div className="thoughts-body">
           {thoughts.map((item, index) => (
             <div key={index} className="thoughts-item">
@@ -85,7 +53,7 @@ function Thoughts() {
               </div>
               <div className="card-body">
                 <h4>{item.title}</h4>
-                <p>{item.desc}</p>
+                <p>{item.description}</p>
               </div>
               <div className="card-footer">
                 <span>
@@ -111,6 +79,8 @@ function Thoughts() {
           ))}
         </div>
       </div>
+
+      {modalVisible && <AddThought showModal={showModal} />}
     </div>
   );
 }
