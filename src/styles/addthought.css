@@ -1,0 +1,105 @@
+:root {
+  --black: #535353;
+  --yellow: #f8c242;
+}
+
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  z-index: 1000;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  cursor: default;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25em;
+  background-color: var(--black);
+  position: relative;
+  z-index: 1001;
+  border-radius: 0.5em;
+  padding: 0.8em 1.5em 1.5em;
+  font-weight: bold;
+  color: #fff;
+  cursor: default;
+}
+
+.modal-close {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-container button {
+  display: inline-flex;
+  background: none;
+  color: var(--yellow);
+  align-self: right;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  border: none;
+}
+
+.modal-container button:hover {
+  color: #f8d27b;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+  width: 100%;
+  height: 100%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1em;
+}
+
+.input-form {
+  padding: 1em;
+  height: 2em;
+  outline: none;
+  border: none;
+  border-radius: 0.3em;
+}
+
+.textarea-form {
+  padding: 1em;
+  height: 10em;
+  outline: none;
+  border: none;
+  border-radius: 0.5em;
+}
+
+#input-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 2.5em;
+  background-color: var(--yellow);
+  color: #fff;
+  border-radius: 0.3em;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+}

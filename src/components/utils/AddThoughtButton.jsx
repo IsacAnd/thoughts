@@ -1,11 +1,14 @@
-import "../../styles/utils/addthought.css";
+import "../../styles/utils/addthoughtbutton.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+import AddThought from "../../pages/AddThought.jsx";
 
-export default function AddThought() {
+export default function AddThoughtButton({ onClick }) {
+  let flag = false;
+
   return (
     <div className="add-button">
-      <button>
+      <button onClick={onClick}>
         <FontAwesomeIcon icon={faSquarePlus} id="icon" />
       </button>
     </div>
