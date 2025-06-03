@@ -14,6 +14,7 @@ import { getThoughts } from "../services/thoughtService";
 function Thoughts() {
   const [thoughts, setThoughts] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const unsubscribe = getThoughts(setThoughts);
@@ -23,25 +24,31 @@ function Thoughts() {
     };
   }, []);
 
-  function showModal() {
+  const filteredThoughts = search
+    ? thoughts.filter((item) =>
+        item.title.toLowerCase().includes(search.toLowerCase())
+      )
+    : thoughts;
+
+  const showModal = () => {
     setModalVisible((prev) => !prev);
-  }
+  };
 
   return (
     <div className="thoughts-container">
       <h3>Veja o que as pessoas estão pensando agora</h3>
       <div className="thoughts-box">
         <div className="thoughts-header">
-          <Search />
+          <Search search={search} setSearch={setSearch} />
           <AddThoughtButton onClick={showModal} />
         </div>
-        {thoughts.length === 0 && (
+        {filteredThoughts.length === 0 && (
           <div className="no-thoughts">
             <p>Sem pensamentos encontrados!</p>
           </div>
         )}
         <div className="thoughts-body">
-          {thoughts.map((item) => (
+          {filteredThoughts.map((item) => (
             <div key={item.id} className="thoughts-item">
               <div className="card-header">
                 <div className="user-img">
