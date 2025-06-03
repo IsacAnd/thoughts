@@ -4,8 +4,6 @@ import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import AddThought from "../../pages/AddThought.jsx";
 
 export default function AddThoughtButton({ onClick }) {
-  let flag = false;
-
   return (
     <div className="add-button">
       <button onClick={onClick}>

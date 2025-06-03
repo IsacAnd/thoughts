@@ -6,7 +6,10 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
-import AddThought from "./pages/AddThought.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import PrivateRoute from "./routes/PrivateRoute.jsx";
+import PublicRoute from "./routes/PublicRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +18,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    Component: App,
+    element: (
+      <PrivateRoute>
+        <App />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <PublicRoute>
+        <Login />
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/register",
+    element: (
+      <PublicRoute>
+        <Register />
+      </PublicRoute>
+    ),
   },
 ]);
 

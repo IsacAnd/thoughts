@@ -49,6 +49,37 @@
   gap: 1em;
 }
 
+.thoughts-item .card-header {
+  display: flex;
+  align-items: center;
+}
+
+.thoughts-item .user-img {
+  width: 3em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.thoughts-item .user-img .profile-thumbnail {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.thoughts-item .user-img .fa-circle-user {
+  color: var(--black);
+}
+
+.thoughts-item .card-header h4 {
+  margin: 0;
+  color: var(--yellow);
+}
+
 .card-body {
   flex-grow: 1;
   padding: 0.5em 0;

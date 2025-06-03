@@ -90,7 +90,7 @@
   border-radius: 0.5em;
 }
 
-#input-submit {
+#input-submit-add {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,4 +102,9 @@
   cursor: pointer;
   font-weight: bold;
   border: none;
+  transition: background-color 0.3s ease;
+}
+
+#input-submit-add:hover {
+  background-color: #fcd67d;
 }

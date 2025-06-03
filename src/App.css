@@ -13,9 +13,13 @@ header {
   z-index: 1000;
 }
 
+main {
+  padding-top: 9dvh;
+}
+
 section {
-  min-height: 90dvh;
   max-height: fit-content;
+  min-height: 83dvh;
 }
 
 footer {

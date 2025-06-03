@@ -21,7 +21,6 @@
   display: flex;
   gap: 1em;
   list-style: none;
-  font-weight: bold;
   color: var(--yellow);
 }
 
@@ -32,4 +31,8 @@
 
 .list-options li:hover {
   color: #fad787;
+}
+
+.list-options li button {
+  font-weight: bold;
 }
