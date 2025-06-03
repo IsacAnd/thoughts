@@ -85,3 +85,9 @@
   margin-top: 0.3em;
   text-decoration: underline;
 }
+
+@media (width <= 850px) {
+  .login-container img {
+    display: none;
+  }
+}

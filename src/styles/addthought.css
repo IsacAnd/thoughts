@@ -58,10 +58,9 @@
   color: #f8d27b;
 }
 
-.form-container {
+.form-container-thought {
   display: flex;
   flex-direction: column;
-  margin-top: 0.5em;
   width: 100%;
   height: 100%;
 }
@@ -72,6 +71,10 @@
   width: 100%;
   height: 100%;
   margin-bottom: 1em;
+}
+
+.input-container label {
+  margin: 0 0 0;
 }
 
 .input-form {

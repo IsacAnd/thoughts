@@ -36,3 +36,12 @@
 .list-options li button {
   font-weight: bold;
 }
+
+@media (width <= 500px) {
+  .list-options {
+    display: none;
+  }
+  .header-container {
+    justify-content: center;
+  }
+}
