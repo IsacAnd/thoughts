@@ -7,9 +7,15 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 function Footer() {
   return (
     <div className="footer-container">
-      <FontAwesomeIcon icon={faInstagram} size="2x" className="icons" />
-      <FontAwesomeIcon icon={faGithub} size="2x" className="icons" />
-      <FontAwesomeIcon icon={faLinkedin} size="2x" className="icons" />
+      <a href="https://www.instagram.com/isac.and/">
+        <FontAwesomeIcon icon={faInstagram} size="2x" className="icons" />
+      </a>
+      <a href="https://github.com/IsacAnd">
+        <FontAwesomeIcon icon={faGithub} size="2x" className="icons" />
+      </a>
+      <a href="https://www.linkedin.com/in/isac-andrade-8915a5284/">
+        <FontAwesomeIcon icon={faLinkedin} size="2x" className="icons" />
+      </a>
     </div>
   );
 }

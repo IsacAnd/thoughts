@@ -44,7 +44,7 @@ function Thoughts() {
         </div>
         {filteredThoughts.length === 0 && (
           <div className="no-thoughts">
-            <p>Sem pensamentos encontrados!</p>
+            <p>Carregando pensamentos...</p>
           </div>
         )}
         <div className="thoughts-body">

@@ -30,7 +30,7 @@ function Header() {
             <button onClick={handleHomeClick}>Home</button>
           </li>
           <li>
-            <button onClick={handleMyThoughtsClick}>Meus pensamentos</button>
+            <button>Meus pensamentos</button>
           </li>
           <li>
             <button onClick={handleLogout}>Sair</button>
