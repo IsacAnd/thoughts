@@ -5,7 +5,7 @@ import AddThought from "../pages/AddThought";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCircleUser,
+  faCircleUser, // Ícone de usuário padrão
   faThumbsUp,
   faThumbsDown,
 } from "@fortawesome/free-solid-svg-icons";
@@ -41,14 +41,22 @@ function Thoughts() {
           </div>
         )}
         <div className="thoughts-body">
-          {thoughts.map((item, index) => (
-            <div key={index} className="thoughts-item">
+          {thoughts.map((item) => (
+            <div key={item.id} className="thoughts-item">
               <div className="card-header">
                 <div className="user-img">
-                  <FontAwesomeIcon icon={faCircleUser} size="2x" />
+                  {item.photoURL ? (
+                    <img
+                      src={item.photoURL}
+                      alt={item.username}
+                      className="profile-thumbnail"
+                    />
+                  ) : (
+                    <FontAwesomeIcon icon={faCircleUser} size="3x" />
+                  )}
                 </div>
                 <span>
-                  <h4>{item.username}</h4>
+                  <h4>{item.username || "Usuário Desconhecido"}</h4>
                 </span>
               </div>
               <div className="card-body">

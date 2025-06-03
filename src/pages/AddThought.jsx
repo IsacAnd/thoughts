@@ -8,7 +8,7 @@ function AddThought({ showModal }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -19,7 +19,7 @@ function AddThought({ showModal }) {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div className="modal-overlay">
@@ -45,7 +45,7 @@ function AddThought({ showModal }) {
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               name="title"
-              id="name"
+              id="title"
               className="input-form"
             />
           </div>
@@ -59,7 +59,7 @@ function AddThought({ showModal }) {
               className="textarea-form"
             ></textarea>
           </div>
-          <input type="submit" id="input-submit" />
+          <input type="submit" id="input-submit-add" />
         </form>
       </div>
     </div>
