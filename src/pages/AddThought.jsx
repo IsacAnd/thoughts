@@ -37,7 +37,7 @@ function AddThought({ showModal }) {
           </button>
         </div>
         <h3>Adicionar pensamento</h3>
-        <form onSubmit={handleSubmit} className="form-container">
+        <form onSubmit={handleSubmit} className="form-container-thought">
           <div className="input-container">
             <label htmlFor="title">Título do pensamento</label>
             <input

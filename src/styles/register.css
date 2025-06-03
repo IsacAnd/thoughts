@@ -145,3 +145,9 @@
 #input-submit:hover {
   background-color: #f5d079;
 }
+
+@media (width <= 850px) {
+  .register-container img {
+    display: none;
+  }
+}
