@@ -2,10 +2,12 @@ import "../styles/header.css";
 import logo from "../img/logo.png";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../context/AuthContext.jsx";
+import { AuthContext } from "../context/AuthContext.jsx";
+import { ToastContext } from "./Toast/ToastContext.jsx";
 
 function Header() {
   const authContext = useContext(AuthContext);
+  const toastContext = useContext(ToastContext);
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
@@ -17,6 +19,7 @@ function Header() {
   };
 
   const handleLogout = () => {
+    toastContext.showToast("Logout realizado com sucesso!", "success");
     authContext.logout();
     navigate("/login");
   };

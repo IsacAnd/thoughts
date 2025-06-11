@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../services/authService";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../img/logo.png";
+import { ToastContext } from "../components/Toast/ToastContext";
 
 function Register() {
   const navigate = useNavigate();
+  const toastContext = useContext(ToastContext);
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -42,8 +44,9 @@ function Register() {
     try {
       await registerUser({ ...formData, image });
       navigate("/login");
+      toastContext.showToast("Cadastrado com sucesso!", "success");
     } catch (error) {
-      alert("Erro ao cadastrar: " + error.message);
+      toastContext.showToast("Erro ao cadastrar-se", "fail");
       console.error(error);
     }
   };

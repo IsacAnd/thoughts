@@ -14,5 +14,5 @@ body {
 }
 
 #root {
-  min-height: fit-content;
+  height: fit-content;
 }

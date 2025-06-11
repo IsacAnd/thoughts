@@ -10,6 +10,8 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
 import PublicRoute from "./routes/PublicRoute.jsx";
+import ToastProvider from "./components/Toast/ToastContext.jsx";
+import AuthProvider from "./context/AuthContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,5 +45,9 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <AuthProvider>
+    <ToastProvider>
+      <RouterProvider router={router} />
+    </ToastProvider>
+  </AuthProvider>
 );
