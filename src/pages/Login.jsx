@@ -1,11 +1,13 @@
 import "../styles/login.css";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { loginUser } from "../services/authService";
 import logo from "../img/logo.png";
+import { ToastContext } from "../components/Toast/ToastContext.jsx";
 
 function Login() {
   const navigate = useNavigate();
+  const toastContext = useContext(ToastContext);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -21,7 +23,10 @@ function Login() {
       const user = await loginUser(formData.email, formData.password);
 
       navigate("/home");
+
+      toastContext.showToast("Logado com sucesso!", "success");
     } catch (error) {
+      toastContext.showToast("Email ou senha incorretos!", "fail");
       console.log(error);
     }
   };

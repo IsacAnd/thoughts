@@ -2,12 +2,12 @@ import "./App.css";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Thoughts from "./components/Thoughts.jsx";
-import { AuthProvider } from "./context/AuthContext.jsx";
+import ToastProvider from "./components/Toast/ToastContext.jsx";
 
 function App() {
   return (
-    <AuthProvider>
-      <div className="app-container">
+    <div className="app-container">
+      <ToastProvider>
         <header>
           <Header />
         </header>
@@ -19,8 +19,8 @@ function App() {
         <footer>
           <Footer />
         </footer>
-      </div>
-    </AuthProvider>
+      </ToastProvider>
+    </div>
   );
 }
 
